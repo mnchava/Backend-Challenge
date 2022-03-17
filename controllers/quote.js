@@ -18,7 +18,7 @@ var quoteModel = mongoose.model(
 
 // router.put('/quote', quote);
 // Consulta https://programming-quotes-api.herokuapp.com/quotes/random para obtener un cita. Y regresar el resultado
-function quote(req, res, next) {
+function quote(_, res) {
   const url = "https://programming-quotes-api.herokuapp.com/quotes/random";
 
   const request = fetch(url)
@@ -46,7 +46,7 @@ function quote(req, res, next) {
 - No se debe mostrar el autor en cada una de las citas
 - Dentro de cada autor las citas se deben mostrar en orden descendente según la fecha de consulta
 */
-function quotes(req, res, next) {
+function quotes(_, res) {
   const query = quoteModel.aggregate([
     {
       $sort: {

@@ -13,7 +13,7 @@ router.post("/flatten", flatten);
 router.post("/quote", quote);
 router.get("/quotes", quotes);
 
-router.use((req, res, next) => {
+router.use((_, res) => {
   res.status(404).send("Not found, check your route.");
 });
 

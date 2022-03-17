@@ -10,7 +10,7 @@ const mongoose = require("mongoose");
 mongoose.connect(
   `mongodb+srv://${process.env.DBUSER}:${process.env.DBPWD}@cluster0.t4ao8.mongodb.net/${process.env.DBNAME}?retryWrites=true&w=majority`,
   { useUnifiedTopology: true, useNewUrlParser: true}
-).then(console.log("Mongoose connected."));
+).then(console.log("Mongoose connected.")).catch(err => console.log(err));
 
 //Configurando las rutas
 app.use("/api", require("./routes"));
