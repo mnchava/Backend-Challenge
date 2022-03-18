@@ -15,7 +15,6 @@ function alpha(req, res, next) {
         return obj;
       }, {});
 
-    console.log(ordered);
     new objModel(ordered).save(ordered).catch((err) => {
 			console.error(err);
 			res.status(500).send("Internal error: " + err.message);

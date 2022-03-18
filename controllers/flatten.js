@@ -6,7 +6,7 @@ function flatten(req, res, next) {
 
   if (keys.length != 0) {
     keys.forEach((key) => {
-      if (Array.isArray(obj[key])) obj[key] = obj[key].join(", ");
+      if (Array.isArray(obj[key])) obj[key] = obj[key].join(",");
     });
 
     res.status(200).send(obj);

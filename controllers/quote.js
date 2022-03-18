@@ -82,12 +82,22 @@ function quotes(_, res) {
   query
     .exec()
     .then((data) => {
-      res.status(200).json(data);
+      res.status(200).json(buildResponse(data));
     })
     .catch((err) => {
       console.log(err);
       res.status(500).send("Error: " + err.message);
     });
+
+	const buildResponse = (data) => {
+		const response = {};
+
+		data.forEach((item, index) => {
+			response[item.author] = item.quotes;
+		});
+
+		return response;
+	}
 }
 
 module.exports = { quote, quotes };

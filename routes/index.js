@@ -14,7 +14,7 @@ router.post("/quote", quote);
 router.get("/quotes", quotes);
 
 router.use((_, res) => {
-  res.status(404).send("Not found, check your route.");
+  res.status(404).send("404 Not Found.");
 });
 
 module.exports = router;

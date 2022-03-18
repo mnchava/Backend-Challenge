@@ -1,20 +1,20 @@
 const express = require("express");
-const app = express();
-require('dotenv').config();
-
 const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
+require("dotenv").config();
+
+const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-const mongoose = require("mongoose");
-mongoose.connect(
-  `mongodb+srv://${process.env.DBUSER}:${process.env.DBPWD}@cluster0.t4ao8.mongodb.net/${process.env.DBNAME}?retryWrites=true&w=majority`,
-  { useUnifiedTopology: true, useNewUrlParser: true}
-).then(console.log("Mongoose connected.")).catch(err => console.log(err));
+mongoose
+  .connect(
+    `mongodb+srv://${process.env.DBUSER}:${process.env.DBPWD}@cluster0.t4ao8.mongodb.net/${process.env.DBNAME}?retryWrites=true&w=majority`,
+    { useUnifiedTopology: true, useNewUrlParser: true }
+  )
+  .catch((err) => console.log(err))
+  .finally(console.log("Mongoose connected."));
 
-//Configurando las rutas
-app.use("/api", require("./routes"));
+app.use("/", require("./routes"));
 
-app.listen(process.env.PORT, () => {
-  console.log(`Server listening on port ${process.env.PORT}`);
-});
+module.exports = app;
