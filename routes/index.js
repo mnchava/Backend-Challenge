@@ -4,7 +4,7 @@ const flatten = require("../controllers/flatten");
 const { quote, quotes } = require("../controllers/quote");
 
 router.get("/", (req, res) => {
-  res.send("Jr Back-End Challenge");
+  res.send("Jr Back-End Challenge<br>Jesus Salvador Uribe - Marzo 2021");
 });
 
 router.put("/alpha", alpha);
