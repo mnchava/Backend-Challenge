@@ -22,5 +22,4 @@ Desplegado en Heroku con actualizaciones directas desde este repo.
 
 https://nuclea-challenge.herokuapp.com/
 
-Los endpoints siguen este URL, por ejemplo para la funcion quotes se manda un request GET a https://nuclea-challenge.herokuapp.com/quotes
-
+Los endpoints siguen este URL, por ejemplo para la funcion *quotes* se manda un request GET a https://nuclea-challenge.herokuapp.com/quotes
